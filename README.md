@@ -1,75 +1,137 @@
-🪔 Smart Ghat – Intelligent Monitoring & Preservation of Heritage Riverfronts
+![Project Banner](docs/banner.png)
 
-Calcutta Hacks 2025 Project | Heritage × Technology × Sustainability
+🌊 Smart Ghat — IoT + Citizen Engagement Platform
 
-🧭 Overview
+Project for Calcutta Hacks 2025  
+Built with ❤️ by Team 404FoundUs
 
-Smart Ghat is an IoT-powered web platform that monitors environmental conditions (water quality, lighting, and cleanliness) at Kolkata’s heritage ghats.
-It provides real-time data visualization, citizen reporting, and alerts to promote sustainable preservation of these cultural landmarks.
 
-🧩 Features
+Empowering heritage through smart water monitoring and citizen participation.
 
-🌊 Live monitoring of water pH, turbidity, and lighting
 
-💡 Smart alerts when thresholds exceed limits
 
-🗣 Citizen issue reporting (photo + note)
 
-📊 Dashboard with live charts and trends
 
-🏅 “Heritage Guardian” badge system (gamified)
 
-⚙️ Tech Stack
-Layer	Technologies
-Frontend	React.js / Next.js + Tailwind CSS
-Backend	Node.js (Express) / Flask
-Database	Firebase / MongoDB
-IoT Simulation	ESP32 / Python script
-Visualization	Chart.js / Recharts
-Hosting	Vercel / Firebase Hosting
-🧠 System Flow
-IoT Sensors / Simulation
-       ↓
-  Backend API Server
-       ↓
-  Database (Firebase)
-       ↓
-  Frontend Dashboard
 
-🧑‍💻 Team Members
-Name	Role	Work
-Member 1	Frontend Developer	Dashboard & UI
-Member 2	Backend Developer	APIs & database
-Member 3	IoT Developer	Data simulation
-Member 4	Designer/Presenter	UI/Storytelling
-🧰 Setup Instructions
-Frontend:
-cd frontend
-npm install
-npm run dev
 
-Backend:
+
+
+📖 Overview
+
+Smart Ghat is an IoT + Web based system designed to monitor the real-time health of river ghats (like Babughat, Princep Ghat etc.) and empower citizens to report cleanliness, lighting, and pollution issues directly from their mobile devices.  
+
+The project bridges ‘hardware sensors’ (for water pH, turbidity, lighting, and temperature) with a ‘live web dashboard’ and an ‘interactive citizen portal’ — making ghats smarter, cleaner, and safer.
+
+
+💡 Key Features
+🧠 Admin Dashboard
+- Real-time visualization of ghat sensor data (pH, turbidity, lighting)
+- Dynamic charts updating from IoT simulator or Arduino sensors
+- Smart alerts for unsafe pH or high turbidity
+- Mobile-friendly dark UI built using React + Chart.js
+
+👥 Citizen Portal
+- Modern, mobile-first interface for citizens to:
+- Submit feedback or report issues  
+ 		- Capture or upload photos from camera/files  
+- Auto-capture GPS location for reports  
+- Choose issue type (Cleanliness, Drain Blockage, Lighting, etc.)
+- Reports displayed instantly with live preview
+- Toast notifications for success/error feedback
+
+🔌 Hardware (IoT Integration)
+- Arduino UNO-based sensor node with:
+- pH sensor  
+- Turbidity sensor  
+- LDR for lighting  
+- Optional temperature sensor  
+- Sends JSON data to the Express backend via Python serial bridge
+
+
+
+
+
+
+
+
+🚀 Quick Setup Guide
+
+1️⃣ Clone the Repository
+git clone https://github.com/kuntal131204/Smart-Ghat-CalcuttaHacks.git
+cd Smart-Ghat-CalcuttaHacks
+2️⃣ Setup Backend
 cd backend
 npm install
-node server.js
+npm start
+Backend will start on:🔗 http://localhost:5000
 
-IoT Data Simulation:
+3️⃣ Setup Frontend
+cd ../frontend
+npm install
+npm run dev
+Frontend runs on:🔗 http://localhost:5173
+
+Access:
+Admin Dashboard: /
+Citizen Portal: /citizen
+
+🧪 IoT Simulator (Software mode)
+If no Arduino connected, simulate live data:
+
 cd iot_simulator
 python simulate_data.py
+This sends fake sensor readings every few seconds to /data.
 
-🖥 Example Screenshot
+⚙️ Arduino Bridge (Hardware mode)
+python arduino_bridge.py
+Ensure you update:
+PORT = "COM3"  # change to your Arduino port
 
-(Add one once your dashboard UI is ready)
-/assets/dashboard_preview.png
+📱 Citizen Portal URL
+Once frontend is running:
+http://localhost:5173/citizen
+or from mobile (same Wi-Fi):
+http://<your-pc-ip>:5173/citizen
 
-🏁 Future Plans
 
-Integrate AI-based waste detection via camera feeds
 
-Predict water pollution levels with ML
 
-Collaborate with civic departments for real deployment
+🧰 Tech Stack
+Layer	Tools / Frameworks
+Frontend	React, Vite, Chart.js, React-Toastify, React-Icons
+Backend	Node.js, Express, Multer, CORS
+Hardware	Arduino UNO, pH Sensor, Turbidity Sensor, LDR
+Communication	Serial + REST API
+Visualization	Dynamic charts, live cards, dark theme UI
 
-📜 License
 
+📸 Screenshots
+
+📊 Live Dashboard				
+![Dashboard Screenshot](docs/Admin Dashboard.png)
+
+👥 Citizen Portal
+![Citizen Portal Screenshot](docs/Citizen Portal.png)
+
+
+
+
+🌍 Future Enhancements
+•	Real database (MongoDB / Firebase)
+•	Map view with live cleanliness score per ghat
+•	AI-based water quality prediction
+•	Public leaderboard for best-maintained ghats
+•	Multi-language support for citizens
+
+
+🧑‍💻 Team
+Member	Role
+Kuntal Ghosh	Full-stack / IoT Integration
+Diptodeep Biswas	UI/UX & Frontend
+Keshav Dutta	Hardware & Sensors
+Irisha Karan	Data & Analytics
+
+
+🏁 License
 MIT License © 2025 Smart Ghat Team
