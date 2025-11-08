@@ -109,10 +109,10 @@ Visualization	Dynamic charts, live cards, dark theme UI
 📸 Screenshots
 
 📊 Live Dashboard				
-![Dashboard Screenshot](docs/Admin Dashboard.png)
+![Dashboard Screenshot](docs/AdminDashboard.png)
 
 👥 Citizen Portal
-![Citizen Portal Screenshot](docs/Citizen Portal.png)
+![Citizen Portal Screenshot](docs/CitizenPortal.png)
 
 
 
