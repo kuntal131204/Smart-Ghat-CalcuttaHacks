@@ -1,0 +1,182 @@
+/* App banner & logo */
+.app-banner {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 6px 0 8px 0;
+}
+.logo-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(96,165,250,0.06), rgba(59,130,246,0.03));
+  box-shadow: 0 6px 18px rgba(3,7,18,0.5);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  animation: glowPulse 3s ease-in-out infinite;
+  animation: glowPulse 3s ease-in-out infinite, bannerSlideIn 0.8s ease-out;
+
+}
+/* ===== Water ripple effect for Smart Ghat logo ===== */
+.logo-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ripple layers using pseudo-elements */
+.logo-wrap::before,
+.logo-wrap::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(59,130,246,0.15) 40%, transparent 60%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  opacity: 0.6;
+  animation: rippleWaves 5s infinite ease-in-out;
+  pointer-events: none;
+}
+
+/* second ripple with offset timing for realism */
+.logo-wrap::after {
+  animation-delay: 2.4s;
+  opacity: 0.4;
+}
+
+@keyframes rippleWaves {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.25);
+    opacity: 0.25;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.5;
+  }
+}
+
+
+/* gentle hover/pop for demo */
+.logo-wrap:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 30px rgba(59,130,246,0.14);
+}
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(59,130,246,0.4);
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(59,130,246,0.8);
+  }
+}
+
+.logo-wrap {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* subtle glowing ring animation */
+.logo-wrap::after {
+  content: "";
+  position: absolute;
+  width: 78px;
+  height: 78px;
+  border-radius: 20px;
+  filter: blur(14px);
+  background: radial-gradient(circle at 30% 30%, rgba(96,165,250,0.18), rgba(59,130,246,0));
+  opacity: 0.85;
+  transform: translate(-18px, -11px);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* smaller screens */
+@media (max-width: 640px) {
+  .app-banner { gap: 8px; }
+  .logo-wrap { width: 40px; height: 40px; }
+  .app-banner h1 { font-size: 18px; }
+}
+
+/* adjust header spacing (if needed) */
+header { margin-bottom: 8px; }
+:root{
+  --bg:#0f1724; --card:#0b1220; --accent:#60a5fa; --good:#16a34a; --bad:#ef4444; --muted:#94a3b8;
+}
+body{font-family:Inter,system-ui,Arial;margin:0;background:linear-gradient(180deg,#071026,#071a2a);color:#e6eef8;}
+.container{padding:28px;max-width:1100px;margin:0 auto;}
+header h1{margin:0;font-size:26px}
+.subtitle{color:var(--muted);margin-top:6px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:18px}
+.card{background:rgba(255,255,255,0.03);padding:14px;border-radius:12px;box-shadow:0 4px 18px rgba(2,6,23,0.6)}
+.card h3{margin:0 0 8px 0;color:var(--muted);font-weight:600}
+.large{font-size:26px;margin:0}
+.good{color:var(--good)}
+.bad{color:var(--bad)}
+.chart-section{margin-top:20px;display:flex;justify-content:center}
+.feed{margin-top:18px;background:rgba(255,255,255,0.02);padding:10px;border-radius:10px}
+.feed ul{list-style:none;padding:0;margin:0;max-height:220px;overflow:auto}
+.feed li{padding:6px 0;border-bottom:1px dashed rgba(255,255,255,0.02);color:var(--muted)}
+footer{margin-top:18px;color:var(--muted)}
+.status-bar {
+  display: flex;
+  align-items: center;
+  margin: 10px 0 20px 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+.status-led {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 8px;
+  background-color: #ef4444;
+  box-shadow: 0 0 8px rgba(239,68,68,0.6);
+  transition: all 0.4s ease;
+}
+.status-led.on {
+  background-color: #16a34a;
+  box-shadow: 0 0 10px rgba(22,163,74,0.8);
+}
+/* ===== Slide-in animation for banner ===== */
+@keyframes bannerSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.app-banner {
+  animation: bannerSlideIn 0.9s ease-out both;
+}
+/* ===== Tagline fade-in animation ===== */
+@keyframes taglineFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tagline {
+  font-size: 15px;
+  color: #93c5fd; /* soft blue tint */
+  font-style: italic;
+  margin-top: 4px;
+  letter-spacing: 0.3px;
+  opacity: 0;
+  animation: taglineFadeIn 1.4s ease-out 0.8s forwards;
+}
